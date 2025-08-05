@@ -1,0 +1,6 @@
+﻿namespace ShopManagement_api.Interfaces.Services
+{
+    public interface ICartService
+    {
+    }
+}
