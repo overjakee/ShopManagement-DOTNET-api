@@ -18,6 +18,8 @@ namespace ShopManagement_api.Datas
         public DbSet<GeneralProfile> GeneralProfiles { get; set; } = null!;
         public DbSet<StudentProfile> StudentProfiles { get; set; } = null!;
         public DbSet<TeacherProfile> TeacherProfiles { get; set; } = null!;
+        public DbSet<Product> Products { get; set; } = null!;
+        public DbSet<ProductType> ProductTypes { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,6 +38,11 @@ namespace ShopManagement_api.Datas
                 .HasOne(ur => ur.Role)
                 .WithMany(r => r.UserRoles)
                 .HasForeignKey(ur => ur.RoleId);
+
+            modelBuilder.Entity<Product>()
+            .HasOne(p => p.ProductType)
+            .WithMany(pt => pt.Products)
+            .HasForeignKey(p => p.ProductTypeId);
         }
     }
 }

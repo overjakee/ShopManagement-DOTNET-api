@@ -2,5 +2,6 @@
 {
     public interface IDashBoardService
     {
+        // แสดงข้อมูลทั้งหมดของ Dashboard
     }
 }
